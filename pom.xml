@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.fushun.spring-boot-demo</groupId>
+    <artifactId>spring-boot-demo</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>developer-tools</module>
+    </modules>
+
+    <!-- https://github.com/spring-projects/spring-boot -->
+
+    <!-- 看到第二部分 Customizing the Restart Classloader -->
+
+    <properties>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <!-- Import dependency management from Spring Boot -->
+                <!--
+                Spring-Boot-starter-parent是使用Spring Boot的一种好方法，但它可能不是一直都很合适。
+                有时您可能需要从另一个父POM或您那里继承可能不喜欢我们的默认设置
+                    <parent>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter-parent</artifactId>
+                        <version>2.1.3.RELEASE</version>
+                    </parent>
+                -->
+                <!-- 覆盖单个依赖项，如上所述。要实现相同的结果，您需要在spring-boot-dependencies条目之前。在项目的dependencyManagement中添加一个条目，scope.import 先定义为准 -->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>2.1.3.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <dependencies>
+        <!--
+         Boot提供了一种方法，可以在启动时分析应用程序的环境并打印诊断信息，还可以在运行时为您临时迁移属性。要启用该特性，请将以下依赖项添加到项目中
+         -->
+        <!-- 晚添加到环境中的属性，例如使用@PropertySource时，将不被考虑。-->
+        <!-- 请注意 迁移完成后，请确保将此模块从项目的依赖项中删除。-->
+        <!--<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-properties-migrator</artifactId>
+            <scope>runtime</scope>
+        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
+
+    <!-- Package as an executable jar -->
+    <build>
+        <plugins>
+            <plugin>
+                <!-- Creating an Executable Jar or war
+                默认情况下，原始工件(即不可执行的)被重命名为.original，但是也可以使用自定义分类器保留原始工件。
+                 cmd: mvn package -s "D:\Program Files (x86)\apache-maven-3.3.9\conf\settings.xml"
+                 cmd: jar tvf .jar 查看jar内部文件列表
+                 -->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.1.3.RELEASE</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

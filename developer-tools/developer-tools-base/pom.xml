@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>developer-tools</artifactId>
+        <groupId>spring-boot-demo</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>spring-boot-demo</groupId>
+    <artifactId>developer-tools-base</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>spring-boot-demo</groupId>
+            <artifactId>developer-tools-test-other-module</artifactId>
+        </dependency>
+
+    </dependencies>
+    <!-- Package as an executable jar -->
+    <build>
+        <plugins>
+            <plugin>
+                <!-- Creating an Executable Jar or war
+                默认情况下，原始工件(即不可执行的)被重命名为.original，但是也可以使用自定义分类器保留原始工件。
+                 cmd: mvn package -s "D:\Program Files (x86)\apache-maven-3.3.9\conf\settings.xml"
+                 cmd: jar tvf .jar 查看jar内部文件列表
+                 -->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                   <configuration>
+                        <!-- 远程更新 和 自动重启
+                            一个电脑，只能执行一个 LiveReload ,这样测试的时候，需要在不同的电脑运行相同的代码，然后修改源码，重新编译
+                            并且本地启动的是，
+                            配置 org.springframework.boot.devtools.RemoteSpringApplication 启动
+                            program arguments：设置远程的项目的访问地址，例如：http://192.168.31.128:8081
+                        -->
+                        <excludeDevtools>false</excludeDevtools>
+                    </configuration>
+                <!-- 如果是parent 的spring-boot-starter-parent，则不需要配置“repackage” -->
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
