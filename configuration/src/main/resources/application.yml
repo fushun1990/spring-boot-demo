@@ -1,0 +1,29 @@
+spring:
+  profiles:
+    active: dev,data
+test:
+    #默认配置
+    app-id: 12345678
+    name: name
+    #占位符（Placeholders）
+    simple-name: ${test.name}
+    # 自定转换器
+    exotic-type: jkjjjjjjj
+    #带着单位，则以此单位为准
+    session-timeout: 500m
+    read-timeout: 300000
+    #带着单位，则以此单位为准
+    buffer-size: 30KB
+    size-threshold: 3000
+# 随机配置实现
+my:
+    secret: ${random.value}
+    number: ${random.int}
+    bignumber: ${random.long}
+    uuid: ${random.uuid}
+    number-less-than-ten: ${random.int(10)}
+    number-in-range: ${random.int[1024,65536]}
+#自定义验证实现
+sample:
+    host: 127.0.0.1
+    port: 2080

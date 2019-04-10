@@ -12,11 +12,12 @@
         <module>developer-tools</module>
         <module>events-listeners</module>
         <module>runner</module>
+        <module>configuration</module>
     </modules>
 
     <!-- https://github.com/spring-projects/spring-boot -->
 
-    <!-- 看到第二部分 Customizing the Restart Classloader -->
+    <!-- 看到 24.8 Type-safe Configuration Properties -->
 
     <properties>
     </properties>
