@@ -13,6 +13,8 @@
         <module>events-listeners</module>
         <module>runner</module>
         <module>configuration</module>
+        <module>profiles</module>
+        <module>logging</module>
     </modules>
 
     <!-- https://github.com/spring-projects/spring-boot -->

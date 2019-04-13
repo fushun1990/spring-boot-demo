@@ -1,0 +1,17 @@
+spring:
+  profiles:
+    active: dev
+# YAML文件实际上是由“---”行分隔的文档序列，每个文档分别解析为展平的地图
+# 如果YAML文档包含spring.profiles键，那么profiles值将被输入Spring Environment.acceptsProfiles（）方法。 如果这些配置文件中的任何一个是活动的，那么该文档将包含在最终合并中（否则，它不是）
+server:
+  port: 9000
+---
+spring:
+  profiles: dev
+server:
+  port: 9001
+---
+spring:
+  profiles: test
+server:
+  port: 0
