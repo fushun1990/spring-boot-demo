@@ -1,0 +1,10 @@
+debug: true
+
+logging:
+  file: var.log
+  path: /log/
+
+spring:
+  output:
+    ansi:
+      enabled: DETECT
