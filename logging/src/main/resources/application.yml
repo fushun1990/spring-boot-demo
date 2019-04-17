@@ -1,9 +1,18 @@
 debug: true
 
 logging:
-  file: var.log
-  path: /log/
-
+  path: var/log/test.log
+  file:
+    max-size: 10000KB
+    max-history: 1
+  level:
+    root: TRACE
+    org:
+      springframework:
+        web: OFF
+      hibernate: OFF
+      apache:
+          tomcat: OFF
 spring:
   output:
     ansi:
