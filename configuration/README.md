@@ -268,7 +268,7 @@ public AnotherComponent anotherComponent() {
 ## Relaxed Binding
 
 | Property   |      Note      | 
-|----------|:-------------:|
+|----------|:-------------|
 | acme.my-project.person.first-name |  kebab-case（短横线命名）建议在.properties和.yml文件中使用。 |
 | acme.myProject.person.firstName |    标准的camelCased (驼峰式) 语法   | 
 | acme.my_project.person.first_name  | 下划线表示法，它是在.properties和.yml文件中使用的替代格式。 |
@@ -279,7 +279,7 @@ public AnotherComponent anotherComponent() {
 Relaxed Binding 每个属性源的绑定规则
 
 | Property Source   |      Simple      |       List      | 
-|----------|:-------------:| -------------:| 
+|----------|:-------------|:-------------| 
 | Properties Files | Camel case, kebab case, or underscore notation | 使用`[]`或`,`分隔值的标准列表语法 |
 | YAML Files | Camel case, kebab case, or underscore notation |  标准YAML列表语法或`.`分隔值 |
 | Environment Variables| Upper case 格式以下划线作为分隔符。不应在属性名中使用`_` | 下划线包围的数值，比如：`MY_ACME_1_OTHER =my.acme[1].other` |
@@ -432,7 +432,7 @@ public class AppIoProperties {
 # @ConfigurationProperties vs. @Value
 
 | Feature | @ConfigurationProperties | @Value | 
-|-------|:-------------:|-------------:|
+|-------|:-------------|:-------------|
 | Relaxed binding | Yes | No |
 | Meta-data support | Yes | No |
 | SpEL evaluation | No | Yes |
