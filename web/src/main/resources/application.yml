@@ -1,0 +1,14 @@
+spring:
+  mvc:
+    # 将所有的资源都采用同意的访问路径前缀 TODO 缺少权限
+    static-path-pattern: /static/**
+  resources:
+    # 采用覆盖的方式
+    static-locations:
+      # 系统默认
+      - classpath:/META-INF/resources/
+      - classpath:/resources/
+      - classpath:/static/
+      - classpath:/public/
+      # 自定义 资源路径
+      - classpath:/myresources/
