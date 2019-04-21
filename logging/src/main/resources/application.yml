@@ -1,12 +1,28 @@
-debug: true
+#trace: true
 
 logging:
   path: var/log/test.log
+  #  file: var.log
   file:
     max-size: 10000KB
     max-history: 1
+  pattern:
+    level: "user:%X{user} %5p"
+  group:
+    tomcat:
+      - org.apache.catalina
+      - sun.rmi
+      - javax.management
+      - org.springframework.core.env.PropertySourcesPropertyResolver
+      - org.springframework.beans.factory.support.DefaultListableBeanFactory
+      - org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader
+      - org.springframework.context.annotation.ConfigurationClassPostProcessor
+      - org.springframework.context.event.EventListenerMethodProcessor
+      - org.springframework.context.annotation.ConfigurationClassEnhancer
+      - org.springframework.beans.CachedIntrospectionResults
   level:
-    root: TRACE
+    root: INFO
+    tomcat: INFO
     org:
       springframework:
         web: OFF
