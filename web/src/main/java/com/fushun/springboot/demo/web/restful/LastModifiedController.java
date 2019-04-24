@@ -16,6 +16,7 @@ import java.util.Date;
 
 @Controller
 public class LastModifiedController implements LastModified {
+
     private long lastModified = System.currentTimeMillis();
 
     /**
@@ -27,14 +28,15 @@ public class LastModifiedController implements LastModified {
      * @return
      */
     @RequestMapping(value = "/test_last_modified", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
-    public ModelAndView test(WebRequest webRequest, HttpServletRequest request) {
+    public ModelAndView test(ModelAndView modelAndView, WebRequest webRequest, HttpServletRequest request) {
         System.out.println("start");
         if (webRequest.checkNotModified(lastModified)) {
             System.out.println("check : " + lastModified);
             return null;
         }
         System.out.println("no check : " + lastModified);
-        return new ModelAndView("returnView.html");
+        modelAndView.setViewName("returnView");
+        return modelAndView;
     }
 
     @RequestMapping(value = "/test_last_modified_json")

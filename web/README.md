@@ -75,7 +75,7 @@ spring.resources.chain.strategy.content.paths=/**
 <link href="/css/spring-2a2d595e6ed9a0b24f027f2b63b134d6.css"/>
 ```
 >Note<br>
-由于ResourceUrlEncodingFilter是为Thymeleaf和FreeMarker自动配置的，所以在运行时可以在模板中重写到资源的链接。在使用jsp时，应该手动声明此过滤器。目前不自动支持其他模板引擎，但可以使用自定义模板宏/助手和theResourceUrlProvider。
+由于为`Thymeleaf`和`FreeMarker`自动配置了`ResourceUrlEncodingFilter`，因此在运行时可以在模板中重写资源链接。 您应该在使用JSP时手动声明此过滤器。 目前不支持其他模板引擎，但可以使用自定义 macros/helpers 以及ResourceUrlProvider的使用。
 
 
 固定版本：
@@ -90,8 +90,9 @@ spring.resources.chain.strategy.fixed.version=v12
 通过这种配置，位于“/js/lib/”下的JavaScript模块使用固定的版本控制策略(“`/v12/js/lib/mymodule.js`”)，而其他资源仍然使用内容hash策略(`<link href="/css/spring-2a2d595e6ed9a0b24f027f2b63b134d6.css"/>`)。
 
 >更多介绍<br>
-1、[Spring Framework 4.1 - handling static web resources](https://spring.io/blog/2014/07/24/spring-framework-4-1-handling-static-web-resources)<br>
-2、[mvc-config-static-resources](https://docs.spring.io/spring/docs/5.1.5.RELEASE/spring-framework-reference/web.html#mvc-config-static-resources)
+1、[Spring Framework 4.1 - handling static web resources](https://spring.io/blog/2014/07/24/spring-framework-4-1-handling-static-web-resources)<br/>
+2、[mvc-config-static-resources](https://docs.spring.io/spring/docs/5.1.5.RELEASE/spring-framework-reference/web.html#mvc-config-static-resources)<br/>
+3、[示例](https://www.cnblogs.com/iiot/p/9647653.html)
 
 更多[ResourceProperties](https://github.com/spring-projects/spring-boot/blob/v2.1.3.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/web/ResourceProperties.java) 选项配置
 
@@ -168,7 +169,15 @@ spring boot 支持的自动配置的模板技术：
 当您使用这些带有默认配置的模板引擎之一时，您的模板将自动从`src/main/resources/templates`中获取
 
 >Tip<br>
-根据您运行应用程序的方式，IntelliJ IDEA以不同方式对类路径进行排序。 从主方法在IDE中运行应用程序会导致与使用Maven或Gradle或其打包的jar运行应用程序时的顺序不同。 这可能导致Spring Boot无法在类路径中找到模板。 如果遇到此问题，可以在IDE中重新排序类路径，以便首先放置模块的类和资源。 或者，您可以配置模板前缀以搜索类路径上的每个`templates`目录，如下所示：`classpath*:/templates/`
+根据您运行应用程序的方式，IntelliJ IDEA以不同方式对类路径进行排序。 从主方法在IDE中运行应用程序会导致与使用Maven或Gradle或其打包的jar运行应用程序时的顺序不同。 这可能导致Spring Boot无法在类路径中找到模板。 如果遇到此问题，可以在IDE中重新排序类路径，以便首先放置模块的类和资源。 或者，您可以配置模板前缀以搜索类路径上的每个`templates`目录，如下所示：
+```yaml
+spring:
+  thymeleaf:
+    prefix: classpath*:/templates/
+```
+> FreeMarker 模板文件的目录 路径不受 `spring.mvc.static-path-pattern=/resources/**` 配置的控制，
+
+
 
 ## Error Handling
 
