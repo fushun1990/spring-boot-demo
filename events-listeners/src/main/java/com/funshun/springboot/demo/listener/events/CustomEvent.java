@@ -1,4 +1,4 @@
-package com.funshun.springboot.demo.events;
+package com.funshun.springboot.demo.listener.events;
 
 import org.springframework.context.ApplicationEvent;
 

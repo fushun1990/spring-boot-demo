@@ -1,9 +1,9 @@
 #如果希望自动注册这些侦听器，无论应用程序是如何创建的,配置如下
 org.springframework.context.ApplicationListener=\
-  com.funshun.springboot.demo.listener.ApplicationEnvironmentPreparedListener,\
-  com.funshun.springboot.demo.listener.ApplicationStartingListener,\
-  com.funshun.springboot.demo.listener.ApplicationFailedListener,\
-  com.funshun.springboot.demo.listener.ApplicationReadyListener,\
-  com.funshun.springboot.demo.listener.ApplicationStartedListener,\
-  com.funshun.springboot.demo.listener.ApplicationPreparedListener,\
-  com.funshun.springboot.demo.listener.CustomListener
+  com.funshun.springboot.demo.listener.listener.ApplicationEnvironmentPreparedListener,\
+  com.funshun.springboot.demo.listener.listener.ApplicationStartingListener,\
+  com.funshun.springboot.demo.listener.listener.ApplicationFailedListener,\
+  com.funshun.springboot.demo.listener.listener.ApplicationReadyListener,\
+  com.funshun.springboot.demo.listener.listener.ApplicationStartedListener,\
+  com.funshun.springboot.demo.listener.listener.ApplicationPreparedListener,\
+  com.funshun.springboot.demo.listener.listener.CustomListener

@@ -1,6 +1,6 @@
-package com.funshun.springboot.demo.reful;
+package com.funshun.springboot.demo.listener.reful;
 
-import com.funshun.springboot.demo.events.CustomEvent;
+import com.funshun.springboot.demo.listener.events.CustomEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.GetMapping;

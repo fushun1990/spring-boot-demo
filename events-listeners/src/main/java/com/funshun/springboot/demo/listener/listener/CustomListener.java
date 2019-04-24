@@ -1,6 +1,6 @@
-package com.funshun.springboot.demo.listener;
+package com.funshun.springboot.demo.listener.listener;
 
-import com.funshun.springboot.demo.events.CustomEvent;
+import com.funshun.springboot.demo.listener.events.CustomEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationListener;

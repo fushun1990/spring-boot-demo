@@ -1,4 +1,4 @@
-package com.funshun.springboot.demo.listener;
+package com.funshun.springboot.demo.listener.listener;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
