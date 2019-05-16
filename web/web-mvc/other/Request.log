@@ -1,0 +1,32 @@
+默认 html view 执行日志 从日志中看出，执行了 Forwarding 然后再执行渲染页面的逻辑()
+2019-04-24 22:20:04.221 TRACE 15876 --- [nio-8080-exec-1] o.s.b.f.s.DefaultListableBeanFactory     : Invoking afterPropertiesSet() on bean with name '/static/returnView.html'
+2019-04-24 22:20:04.222 DEBUG 15876 --- [nio-8080-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, text/html;q=0.8]
+2019-04-24 22:20:04.222 TRACE 15876 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Rendering view [org.springframework.web.servlet.view.InternalResourceView: name '/static/returnView.html'; URL [/static/returnView.html]]
+2019-04-24 22:20:04.222 DEBUG 15876 --- [nio-8080-exec-1] o.s.w.servlet.view.InternalResourceView  : View name '/static/returnView.html', model {modelAndView=ModelAndView [view="/static/returnView.html"; model={}], org.springframework.validation.BindingResult.modelAndView=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2019-04-24 22:20:04.225 DEBUG 15876 --- [nio-8080-exec-1] o.s.w.servlet.view.InternalResourceView  : Forwarding to [/static/returnView.html]
+2019-04-24 22:20:04.231 DEBUG 15876 --- [nio-8080-exec-1] o.apache.catalina.core.StandardWrapper   :   Returning non-STM instance
+2019-04-24 22:20:04.232 TRACE 15876 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : "FORWARD" dispatch for GET "/static/returnView.html", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2019-04-24 22:20:04.238 TRACE 15876 --- [nio-8080-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to HandlerExecutionChain with [ResourceHttpRequestHandler ["classpath:/META-INF/resources/", "classpath:/resources/", "classpath:/static/", "classpath:/public/", "classpath:/myresources/", "/"]] and 5 interceptors
+2019-04-24 22:20:04.271 TRACE 15876 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : No view rendering, null ModelAndView returned.
+2019-04-24 22:20:04.271 DEBUG 15876 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Exiting from "FORWARD" dispatch, status 200, headers={masked}
+2019-04-24 22:20:04.274 TRACE 15876 --- [nio-8080-exec-1] o.s.b.f.s.DefaultListableBeanFactory     : Returning cached instance of singleton bean 'springApplicationAdminRegistrar'
+2019-04-24 22:20:04.274 TRACE 15876 --- [nio-8080-exec-1] o.s.b.f.s.DefaultListableBeanFactory     : Returning cached instance of singleton bean 'liveReloadServerEventListener'
+2019-04-24 22:20:04.275 DEBUG 15876 --- [nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    :  Disabling the response for further output
+2019-04-24 22:20:04.275 DEBUG 15876 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK, headers={masked}
+2019-04-24 22:20:04.276 TRACE 15876 --- [nio-8080-exec-1] o.s.b.w.s.f.OrderedRequestContextFilter  : Cleared thread-bound request context: org.apache.catalina.connector.RequestFacade@5eeacac0
+
+FreeMarker 模板引擎，使用读取自定path下的资源方式，然后在渲染逻辑，
+2019-04-24 22:23:23.806 TRACE 3588 --- [nio-8080-exec-1] o.s.b.f.s.DefaultListableBeanFactory     : Returning cached instance of singleton bean 'freeMarkerConfigurer'
+2019-04-24 22:23:23.816 TRACE 3588 --- [nio-8080-exec-1] o.s.b.f.s.DefaultListableBeanFactory     : Invoking afterPropertiesSet() on bean with name 'returnView'
+2019-04-24 22:23:23.873 TRACE 3588 --- [nio-8080-exec-1] o.s.b.f.s.DefaultListableBeanFactory     : Invoking afterPropertiesSet() on bean with name 'returnView'
+2019-04-24 22:23:23.874 DEBUG 3588 --- [nio-8080-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, text/html;q=0.8]
+2019-04-24 22:23:23.874 TRACE 3588 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Rendering view [org.springframework.web.servlet.view.freemarker.FreeMarkerView: name 'returnView'; URL [returnView.ftl]]
+2019-04-24 22:23:23.874 DEBUG 3588 --- [nio-8080-exec-1] o.s.w.s.view.freemarker.FreeMarkerView   : View name 'returnView', model {modelAndView=ModelAndView [view="returnView"; model={}], org.springframework.validation.BindingResult.modelAndView=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2019-04-24 22:23:23.877 DEBUG 3588 --- [nio-8080-exec-1] o.s.w.s.view.freemarker.FreeMarkerView   : Rendering [returnView.ftl]
+2019-04-24 22:23:23.886 DEBUG 3588 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK, headers={masked}
+2019-04-24 22:23:23.889 TRACE 3588 --- [nio-8080-exec-1] o.s.b.f.s.DefaultListableBeanFactory     : Returning cached instance of singleton bean 'springApplicationAdminRegistrar'
+2019-04-24 22:23:23.889 TRACE 3588 --- [nio-8080-exec-1] o.s.b.f.s.DefaultListableBeanFactory     : Returning cached instance of singleton bean 'liveReloadServerEventListener'
+2019-04-24 22:23:23.889 TRACE 3588 --- [nio-8080-exec-1] o.s.b.w.s.f.OrderedRequestContextFilter  : Cleared thread-bound request context: org.apache.catalina.connector.RequestFacade@7179a16
+
+两种方式都将页面渲染和数据绑定的逻辑放在了服务器端，所以服务器的性能不好了，
+还是需要前后分离的方式
